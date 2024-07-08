@@ -118,13 +118,13 @@ outline: none;
 
 
 button[type="button"] {
-    font-size: 14px;
+    font-size: 12px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     margin-bottom: 6px;
-    width: 22%;
+    width: 24%;
     height: 40px;
     cursor: pointer;
     box-shadow: 1px 1px 7px 0.5px rgb(158, 206, 255);
@@ -151,9 +151,17 @@ form{
 @media(max-width: 500px) {
   
     .wrapper {
-     
+     width: 70%;
     padding: 6px;
-        
+    background-image:  url('./V3bgcD.jpg');
+    background-size: cover; 
+    background-position: center; 
+   
+    height: 50vh;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 1px 1px 12px 0.5px rgb(158, 206, 255);
     }
     input{
 
@@ -187,6 +195,7 @@ form{
         width: 40%;
         margin: -20px;
     }
+   
     .but1{
         font-size: 14px;
         color: rgb(255, 255, 255);
