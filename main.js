@@ -1,13 +1,19 @@
-let input = document.querySelector('input')
-let btn = document.querySelector('button')
-let hed = document.querySelector('.hed')
-let but = document.querySelector('.but')
-let hed1 = document.querySelector('.hed1')
-let but1 = document.querySelector('.but1')
-let bottm = document.querySelector(".bottm")
-let wrapper = document.querySelector('.wrapper')
+let input = document.querySelector('input');
+let btn = document.querySelector('button');
+let hed = document.querySelector('.hed');
+let but = document.querySelector('.but');
+let hed1 = document.querySelector('.hed1');
+let but1 = document.querySelector('.but1');
+let bottm = document.querySelector(".bottm");
+let wrapper = document.querySelector('.wrapper');
+
 const Funct = () => {
-    let qury = input.value
+    hed.innerHTML = '';
+    but.innerHTML = '';
+    hed1.innerHTML = '';
+    but1.innerHTML = '';
+
+    let qury = input.value;
     const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${qury}`;
     const options = {
         method: 'GET',
@@ -20,50 +26,54 @@ const Funct = () => {
     fetch(url, options)
         .then(res => res.json())
         .then(data => {
-            const b1 = document.createElement('h2')
-            b1.innerHTML = data.location.country
-            hed.appendChild(b1)
-            const b = document.createElement('h2')
-            b.innerHTML = data.location.region
-            hed.appendChild(b)
-            console.log(data)
+            const country = document.createElement('h2');
+            country.textContent = data.location.country;
+            hed.appendChild(country);
 
-            const p = document.createElement('p')
-            p.innerHTML = `soat; ${data.current.last_updated}`
-            but.appendChild(p)
-            const b2 = document.createElement('p')
-            b2.innerHTML = `baland harorat +${data.current.windchill_c}°`
-            but.appendChild(b2)
+            const region = document.createElement('h2');
+            region.textContent = data.location.region;
+            hed.appendChild(region);
 
+            const updateTime = document.createElement('p');
+            updateTime.textContent = `Last Updated: ${data.current.last_updated}`;
+            but.appendChild(updateTime);
 
-            const h1 = document.createElement('h1')
-            h1.innerHTML = `+${data.current.temp_c}°`
-            hed1.appendChild(h1)
-            const img = document.createElement("img")
-            img.src = data.current.condition.icon
-            hed1.appendChild(img)
-            const p2 = document.createElement('p')
-            p2.innerHTML = `pas harorat +${data.current.pressure_in}°`
-            hed1.appendChild(p2)
-            
-            let whid = document.createElement('div')
-                
-             whid.innerHTML=`<img src="./363-3638728_wind-icon-png-free-stock-blue-wind-icon-removebg-preview.png" alt="">${data.current.wind_mph}<p>M/C</p>`
-             but1.appendChild(whid)
-             let whater = document.createElement('div')
-             whater.classList.add('whater'); 
-             whater.innerHTML=` <img src="./images__3_-removebg-preview.png" alt="">${data.current.humidity}<p>%</p>`
-             
-             but1.appendChild(whater)
-             let ww = document.createElement('div')
-                
-             ww.innerHTML=`<img src="./png-clipart-barometer-computer-icons-gauge-atmospheric-pressure-barometer-angle-atmospheric-pressure-removebg-preview.png" alt="">${data.current.pressure_mb} <p>MM</p>`
-             but1.appendChild(ww)
+            const windChill = document.createElement('p');
+            windChill.textContent = `Feels like: +${data.current.windchill_c}°C`;
+            but.appendChild(windChill);
+
+            const temperature = document.createElement('h1');
+            temperature.textContent = `+${data.current.temp_c}°C`;
+            hed1.appendChild(temperature);
+
+            const conditionIcon = document.createElement('img');
+            conditionIcon.src = data.current.condition.icon;
+            hed1.appendChild(conditionIcon);
+
+            const pressure = document.createElement('p');
+            pressure.textContent = `Pressure: ${data.current.pressure_in} inHg`;
+            hed1.appendChild(pressure);
+
+            const windInfo = document.createElement('div');
+            windInfo.innerHTML = `<img src="./363-3638728_wind-icon-png-free-stock-blue-wind-icon-removebg-preview.png" alt="">${data.current.wind_mph}<p>m/s</p>`;
+            but1.appendChild(windInfo);
+
+            const humidityInfo = document.createElement('div');
+            humidityInfo.classList.add('whater');
+            humidityInfo.innerHTML = `<img src="./images__3_-removebg-preview.png" alt="">${data.current.humidity}<p>%</p>`;
+            but1.appendChild(humidityInfo);
+
+            const pressureInfo = document.createElement('div');
+            pressureInfo.innerHTML = `<img src="./png-clipart-barometer-computer-icons-gauge-atmospheric-pressure-barometer-angle-atmospheric-pressure-removebg-preview.png" alt="">${data.current.pressure_mb} <p>mm</p>`;
+            but1.appendChild(pressureInfo);
         })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+           
+        });
+};
 
-}
-
-btn.addEventListener('click', Funct)
+btn.addEventListener('click', Funct);
 
 
 
@@ -100,7 +110,7 @@ btn.addEventListener('click', () => {
 });
 
 function renderForecast(data) {
-  
+  bottm.innerHTML=''
 
     data.forecast.forecastday.forEach(day => {
         const date = new Date(day.date);
