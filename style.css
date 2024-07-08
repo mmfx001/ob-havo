@@ -1,0 +1,213 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.hedr{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.hed{
+    display: flex;
+    gap: 14px;
+
+}
+.but{
+    display: flex;
+    gap: 14px;
+
+}
+.hed1{
+    display: flex;
+    gap: 14px;
+
+}
+.but1{
+    display: flex;
+    gap: 18px;
+   
+}
+.but1>div{
+    display: flex;
+    align-items: center;
+}
+.but1 div img {
+    max-width: 30px;
+    margin-right: 10px;
+}
+.hedr .hed, .hedr .but, .man .hed1, .man .but1 {
+    display: flex;
+    align-items: center;
+}
+.wrapper {
+    background-image:  url('./V3bgcD.jpg');
+    background-size: cover; 
+    background-position: center; 
+    width: 50%;
+    height: 50vh;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 1px 1px 12px 0.5px rgb(158, 206, 255);
+ 
+}
+.nm{
+    width: 112px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+background: linear-gradient(to bottom, rgb(0, 51, 234), white);
+
+}
+.hed1>h1{
+    font-size: 43px;
+    color: white;
+}
+.hed>h2{
+    font-size: 26px;
+    color: white;
+}
+.but{
+    font-size: 18px;
+    color: rgb(215, 215, 215);
+    margin-top: -10px;
+}
+.hed1{
+    font-size: 18px;
+    color: rgb(214, 214, 214);
+    margin-top: -10px;
+}
+.but1{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    gap: 32px;
+}
+.hr{
+    width: 95%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.423);
+    margin-left: 12px;
+
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    box-shadow: 1px 1px 12px 0.5px rgb(158, 206, 255);
+   
+outline: none;
+}
+
+
+button[type="button"] {
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    width: 22%;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 1px 1px 7px 0.5px rgb(158, 206, 255);
+   
+
+}
+form{
+    display: flex;
+    width: 28%;
+    justify-content: center;
+    justify-content: space-between;
+}
+.bottm{
+    display: flex;
+    gap: 42px;
+}
+.bottm>div>p,h2{
+    color: white;
+}
+.bottm>div>p{
+    color: rgb(220, 220, 220);
+    font-size: 16px;
+}
+@media(max-width: 500px) {
+  
+    .wrapper {
+     
+    padding: 6px;
+        
+    }
+    input{
+
+    }
+    form{
+        width: 49%;
+    }
+    button{
+    }
+    .hed1>h1{
+        font-size: 28px;
+        color: white;
+    }
+    .hed>h2{
+        font-size: 19px;
+        color: white;
+    }
+    .but{
+        font-size: 12px;
+        color: rgb(215, 215, 215);
+        margin-top: -10px;
+        gap: 7px;
+    }
+    .hed1{
+        font-size: 12px;
+        color: rgb(214, 214, 214);
+        margin-top: -10px;
+        gap: 0px;
+    }
+    .hed1>img{
+        width: 40%;
+        margin: -20px;
+    }
+    .but1{
+        font-size: 14px;
+        color: rgb(255, 255, 255);
+        margin-top: 10px;
+        gap: 8px;
+        display: flex;
+    }
+    .but1>div>img{
+        display: flex;
+        width: 30%;
+        margin-right: 0px;
+    }
+  .bottm>div>p{
+    font-size: 9px;
+
+  }
+  .bottm>div>h2{
+    font-size: 14px;
+
+  }
+  .bottm{
+    gap: 10px;
+  }
+}
